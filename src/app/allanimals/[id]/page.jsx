@@ -1,10 +1,16 @@
 import React from "react";
 import Image from "next/image";
-import animals from "../../../data/animal.json"
+import animals from "../../../data/animal.json";
+import { Rocket } from "@gravity-ui/icons";
+import { Button, Modal } from "@heroui/react";
+import { BookmarkFill } from "@gravity-ui/icons";
+import BookingForm from "@/components/BookingForm";
+
 const Detailspage = async ({ params }) => {
-  const {id} = await params;
-  const animal = animals.find((item)=>id==item.id);
-  
+  const { id } = await params;
+
+  const animal = animals.find((item) => id == item.id);
+
   return (
     <section className="py-12 bg-base-100">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -62,7 +68,34 @@ const Detailspage = async ({ params }) => {
           </div>
 
           {/* Button */}
-          <button className="btn btn-primary mt-6">Contact Seller</button>
+          <Modal>
+            <Button className={`mt-2`} variant="secondary">
+              Booking form
+            </Button>
+            <Modal.Backdrop>
+              <Modal.Container>
+                <Modal.Dialog className="sm:max-w-[360px]">
+                  <Modal.CloseTrigger />
+                  <Modal.Header>
+                    <Modal.Icon className="bg-default text-foreground">
+                      <BookmarkFill className="size-5" />
+                    </Modal.Icon>
+                    <Modal.Heading className="text-center">
+                      Book you animal
+                    </Modal.Heading>
+                  </Modal.Header>
+                  <Modal.Body className="mx-auto">
+                    <BookingForm  />
+                  </Modal.Body>
+                  {/* <Modal.Footer>
+                    <Button className="w-full" slot="close">
+                      Continue
+                    </Button>
+                  </Modal.Footer> */}
+                </Modal.Dialog>
+              </Modal.Container>
+            </Modal.Backdrop>
+          </Modal>
         </div>
       </div>
     </section>

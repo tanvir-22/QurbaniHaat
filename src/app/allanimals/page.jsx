@@ -2,8 +2,9 @@ import { getAnimals } from "@/lib/animal";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-const Allanimalpage = async() => {
-    const sortedAnimals = await getAnimals()
+
+const Allanimalpage = async () => {
+  const sortedAnimals = await getAnimals();
   return (
     <section className="py-12 bg-base-100">
       <div className="max-w-6xl mx-auto px-4">

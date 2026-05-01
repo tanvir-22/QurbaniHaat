@@ -1,13 +1,15 @@
 import { getAnimals } from "@/lib/animal";
 import React from "react";
 import Image from "next/image";
+import { Star } from "@gravity-ui/icons";
+
 const FeturedSection = async () => {
   const animals = await getAnimals();
   return (
     <section className="py-12 bg-base-100">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Title */}
-        <div className="mb-8 text-center md:text-left">
+        <div className="mb-8 text-center ">
           <h2 className="text-2xl md:text-3xl font-bold">Featured Animals</h2>
           <p className="text-gray-500 mt-2">
             Handpicked healthy animals ready for Qurbani
@@ -16,7 +18,7 @@ const FeturedSection = async () => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {animals.slice(0,4).map((animal) => (
+          {animals.slice(0, 4).map((animal) => (
             <div key={animal.id} className="card bg-base-200 shadow-sm">
               {/* Image */}
               <figure>
@@ -42,9 +44,8 @@ const FeturedSection = async () => {
                 </p>
 
                 <div className="card-actions mt-3">
-                  <button className="btn btn-primary btn-sm w-full">
-                    View Details
-                  </button>
+                  <p>Rating: {animal.sellerRating}</p>
+                  <Star/>
                 </div>
               </div>
             </div>
