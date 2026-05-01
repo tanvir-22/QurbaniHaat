@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Healthy & Well Fed",
+    "description": "All our cattle are raised with natural feed and proper care to ensure good health and quality meat.",
+    "image": "https://c8.alamy.com/comp/2GM08ND/man-farmer-with-bucket-feeding-cows-at-the-cow-farm-outdoor-2GM08ND.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Verified Sellers",
+    "description": "We work with trusted farmers and sellers to make sure you get genuine and reliable animals.",
+    "image": "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/172CE/production/_96462949_jaywilde2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Disease-free",
+    "description": "They are properly vaccinated against diseases like Anthrax and FMD, and are raised in a natural environment without the use of antibiotics.",
+    "image": "https://thumbs.dreamstime.com/b/veterinarian-farm-cattle-examines-samples-analyzes-cow-doctor-centaur-49658574.jpg"
+  }
+]
