@@ -7,7 +7,7 @@ import React from "react";
 
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
-  console.log(session?.user);
+
   const links = (
     <>
       <li>
@@ -58,7 +58,7 @@ const Navbar = () => {
         {/* */}
         {isPending ? (
           <span className="loading loading-spinner loading-xl"></span>
-        ) : session.user ? (
+        ) : session ? (
           <>
             <Image
               src={session?.user?.image}
@@ -67,6 +67,10 @@ const Navbar = () => {
               alt="user image"
               className="rounded-full w-10 h-10 object-cover "
             />
+            <Link href={`/myprofile`}>
+              {" "}
+              <Button variant="secondary">My profile</Button>
+            </Link>
             <Button
               onClick={async () => {
                 await authClient.signOut();
