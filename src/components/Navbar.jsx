@@ -10,7 +10,7 @@ const Navbar = () => {
       </li>
 
       <li>
-       <Link href={`/`}>All Animals</Link>
+       <Link href={`/allanimals`}>All Animals</Link>
       </li>
     </>
   );
@@ -50,10 +50,10 @@ const Navbar = () => {
       </div>
       <div className="navbar-end flex gap-3">
         <Button variant="secondary">
-          <Link href={`/`}>Login</Link>
+          <Link href={`/login`}>Login</Link>
         </Button>
         <Button variant="secondary">
-          <Link href={`/`}>Register</Link>
+          <Link href={`/register`}>Register</Link>
         </Button>
       </div>
     </div>
