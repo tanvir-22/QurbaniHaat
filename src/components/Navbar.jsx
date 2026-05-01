@@ -1,8 +1,13 @@
+"use client";
+import { authClient } from "@/lib/auth-client";
 import { Button } from "@heroui/react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
+  const { data: session, isPending } = authClient.useSession();
+  console.log(session?.user);
   const links = (
     <>
       <li>
@@ -10,7 +15,7 @@ const Navbar = () => {
       </li>
 
       <li>
-       <Link href={`/allanimals`}>All Animals</Link>
+        <Link href={`/allanimals`}>All Animals</Link>
       </li>
     </>
   );
@@ -49,12 +54,33 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex gap-3">
-        <Button variant="secondary">
-          <Link href={`/login`}>Login</Link>
-        </Button>
-        <Button variant="secondary">
-          <Link href={`/register`}>Register</Link>
-        </Button>
+        {/*  */}
+        {/* */}
+        {isPending ? (
+          <span className="loading loading-spinner loading-xl"></span>
+        ) : session.user ? (
+          <>
+            <Image
+              src={session?.user?.image}
+              width={30}
+              height={30}
+              alt="user image"
+              className="rounded-full w-10 h-10 object-cover "
+            />
+            <Button
+              onClick={async () => {
+                await authClient.signOut();
+              }}
+              variant="secondary"
+            >
+              Logout
+            </Button>
+          </>
+        ) : (
+          <Button variant="secondary">
+            <Link href={`/login`}>Login</Link>
+          </Button>
+        )}
       </div>
     </div>
   );
