@@ -4,7 +4,7 @@ import { Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+import ThemeSwitch from "../app/ThemeSwitch";
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
 
@@ -49,6 +49,7 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">QurbaniHaat</a>
+        <ThemeSwitch />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

@@ -57,7 +57,7 @@ const Registerpage = () => {
               />
       <Form
         onSubmit={handleRegisterSubmit}
-        className="bg-slate-100 p-10 flex w-[30vw] flex-col gap-4 rounded-md"
+        className="bg-base-200 p-10 flex w-[30vw] flex-col gap-4 rounded-md"
       >
         <p className="font-semibold text-xl text-center">
           Register your account

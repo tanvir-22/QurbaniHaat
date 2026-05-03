@@ -10,6 +10,7 @@ const Detailspage = async ({ params }) => {
   const { id } = await params;
 
   const animal = animals.find((item) => id == item.id);
+  
 
   return (
     <section className="py-12 bg-base-100">
