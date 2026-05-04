@@ -31,7 +31,7 @@ const Registerpage = () => {
         autoClose: 2000,
       });
       setTimeout(() => {
-        redirect("/login");
+        redirect("/");
       }, 2000);
     } else {
       toast.error(error.message);
