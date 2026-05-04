@@ -12,17 +12,21 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <Link className="font-semibold" href={`/`}>Home</Link>
+        <Link className="font-semibold" href={`/`}>
+          Home
+        </Link>
       </li>
 
       <li>
-        <Link className="font-semibold" href={`/allanimals`}>All Animals</Link>
+        <Link className="font-semibold" href={`/allanimals`}>
+          All Animals
+        </Link>
       </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm relative animate__animated animate__backInRight">
+    <div className="navbar bg-base-100 z-40 shadow-sm relative animate__animated animate__backInRight">
       <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,8 +47,8 @@ const Navbar = () => {
             </svg>
           </div>
           <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            tabIndex="0"
+            className="menu menu-sm dropdown-content bg-base-100 absolute rounded-box mt-3 w-52 p-2 shadow"
           >
             {links}
             {isPending ? (

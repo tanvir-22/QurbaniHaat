@@ -25,8 +25,8 @@ const Banner = () => {
           <Image
             src={cowImg}
             alt="Cow"
-            className="rounded-lg object-cover"
-            width={600}
+            className="rounded-lg object-cover border"
+            width={500}
             height={300}
             priority
           />
