@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import cowImg from "../../public/oricow.jpg";
+import cowImg from "../../public/mubarak.jpg";
+import "animate.css";
 const Banner = () => {
   return (
     <section className="bg-base-100 py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-10">
         {/* Left Content */}
-        <div className="flex-1 text-center md:text-left">
+        <div className="flex-1 text-center md:text-left animate__animated animate__lightSpeedInRight">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">
             Find the Best Cow for Your Qurbani
           </h1>
@@ -20,12 +21,12 @@ const Banner = () => {
         </div>
 
         {/* Right Image */}
-        <div className="flex-1 flex justify-center">
+        <div className="flex-1 flex justify-center animate__animated animate__backInRight">
           <Image
             src={cowImg}
             alt="Cow"
             className="rounded-lg object-cover"
-            width={400}
+            width={600}
             height={300}
             priority
           />

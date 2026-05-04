@@ -5,23 +5,24 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ThemeSwitch from "../app/ThemeSwitch";
+import "animate.css";
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
 
   const links = (
     <>
       <li>
-        <Link href={`/`}>Home</Link>
+        <Link className="font-semibold" href={`/`}>Home</Link>
       </li>
 
       <li>
-        <Link href={`/allanimals`}>All Animals</Link>
+        <Link className="font-semibold" href={`/allanimals`}>All Animals</Link>
       </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm relative">
+    <div className="navbar bg-base-100 shadow-sm relative animate__animated animate__backInRight">
       <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

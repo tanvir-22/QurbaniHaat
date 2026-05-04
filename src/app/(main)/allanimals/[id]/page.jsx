@@ -5,6 +5,7 @@ import { Rocket } from "@gravity-ui/icons";
 import { Button, Modal } from "@heroui/react";
 import { BookmarkFill } from "@gravity-ui/icons";
 import BookingForm from "@/components/BookingForm";
+import { CircleInfoFill } from "@gravity-ui/icons";
 
 const Detailspage = async ({ params }) => {
   const { id } = await params;
@@ -12,7 +13,7 @@ const Detailspage = async ({ params }) => {
   const animal = animals.find((item) => id == item.id);
 
   return (
-    <section className="py-12 bg-base-100">
+    <section className="py-12 ">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Left - Image */}
         <div className=" rounded-lg overflow-hidden">
@@ -26,35 +27,8 @@ const Detailspage = async ({ params }) => {
         </div>
 
         {/* Right - Details */}
-        <div>
+        <div className="bg-base-200 p-5 rounded-md">
           <h1 className="text-3xl font-bold">{animal.name}</h1>
-
-          <p className="text-gray-500 mt-2">Location: {animal.location}</p>
-
-          <p className="text-xl font-bold text-primary mt-4">
-            ৳ {animal.price}
-          </p>
-
-          <div className="mt-4 space-y-2 text-sm">
-            <p>
-              <span className="font-semibold">Type:</span> {animal.type}
-            </p>
-            <p>
-              <span className="font-semibold">Breed:</span> {animal.breed}
-            </p>
-            <p>
-              <span className="font-semibold">Weight:</span> {animal.weight} kg
-            </p>
-            <p>
-              <span className="font-semibold">Age:</span> {animal.age} years
-            </p>
-          </div>
-
-          <p className="mt-6 text-gray-600 leading-relaxed">
-            {animal.description}
-          </p>
-
-          {/* Availability */}
           <div className="mt-4">
             <span
               className={`px-3 py-1 rounded text-sm ${
@@ -66,12 +40,49 @@ const Detailspage = async ({ params }) => {
               {animal.available ? "Available" : "Sold Out"}
             </span>
           </div>
+          <p className="text-gray-500 mt-2">Location: {animal.location}</p>
+
+          <p className="text-xl font-bold text-primary mt-4">
+            ৳ {animal.price}
+          </p>
+          <p className="mt-6  leading-relaxed">
+            {animal.description}
+          </p>
+          <div className="mt-4 space-y-2 text-sm  ">
+            <p className=" p-2 rounded-md flex items-center gap-1">
+              <span className="font-semibold flex items-center gap-2 "><CircleInfoFill/> Type:</span> {animal.type}
+            </p>
+            <p className=" p-2 rounded-md flex items-center gap-1">
+              <span className="font-semibold flex items-center gap-2 "><CircleInfoFill/> Breed:</span> {animal.breed}
+            </p>
+            <p className=" p-2 rounded-md flex items-center gap-1">
+              <span className="font-semibold flex items-center gap-2 "><CircleInfoFill/> Weight:</span> {animal.weight} kg
+            </p>
+            <p className=" p-2 rounded-md flex items-center gap-1">
+              <span className="font-semibold flex items-center gap-2 "><CircleInfoFill/> Age:</span> {animal.age} years
+            </p>
+            <p className=" p-2 rounded-md flex items-center gap-1">
+              <span className="font-semibold flex items-center gap-2 "><CircleInfoFill/> Height:</span> {animal.height}
+            </p>
+            <p className=" p-2 rounded-md flex items-center gap-1">
+              <span className="font-semibold flex items-center gap-2 "><CircleInfoFill/> Health Status:</span>{" "}
+              {animal.healthStatus}
+            </p>
+            <p className=" p-2 rounded-md flex items-center gap-1">
+              <span className="font-semibold flex items-center gap-2 "><CircleInfoFill/> Seller Name:</span>{" "}
+              {animal.sellerName}
+            </p>
+            <p className=" p-2 rounded-md flex items-center gap-1">
+              <span className="font-semibold flex items-center gap-2 "><CircleInfoFill/> Posted Date: </span>{" "}
+              {animal.postedDate}
+            </p>
+          </div>
+
+          {/* Availability */}
 
           {/* Button */}
           <Modal>
-            <Button className={`mt-2`} variant="secondary">
-              Order
-            </Button>
+            <Button className={`mt-2 bg-accent`}>Order</Button>
             <Modal.Backdrop>
               <Modal.Container>
                 <Modal.Dialog className="sm:max-w-[360px]">
