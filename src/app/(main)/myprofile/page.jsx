@@ -2,6 +2,7 @@
 import React from "react";
 import { authClient } from "@/lib/auth-client";
 import { toast, ToastContainer } from "react-toastify";
+import Image from "next/image";
 
 const Profilepage = () => {
   const { data: session } = authClient.useSession();
@@ -22,11 +23,26 @@ const Profilepage = () => {
   };
 
   return (
-    <div className="h-[50vh] flex items-center justify-center">
+    <div className="min-h-[70vh] md:h-[50vh] flex flex-col items-center justify-center">
       <ToastContainer position="top-center" />
+
+     
+      {session?.user && (
+        <>
+          <h1 className="my-4 md:text-3xl text-sky-400">Welcome! {session?.user?.name}</h1>
+        <Image
+          src={session?.user?.image}
+          width={100}
+          height={100}
+          alt="user profile image "
+        />  
+        </>
+       
+      )}
+
       <form
         onSubmit={handleSubmit}
-        className="flex w-98 bg-slate-100 rounded-2xl  p-10 flex-col gap-3"
+        className="flex mt-2 w-98 bg-base-200 rounded-2xl  p-10 flex-col gap-3"
       >
         <label className="font-semibold"> username</label>
         <input

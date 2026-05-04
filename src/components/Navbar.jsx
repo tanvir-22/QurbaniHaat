@@ -21,8 +21,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
-      <div className="navbar-start">
+    <div className="navbar bg-base-100 shadow-sm relative">
+      <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -46,15 +46,47 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {links}
+            {isPending ? (
+              <span className="loading loading-spinner loading-xl"></span>
+            ) : session ? (
+              <>
+                <div className="flex justify-between items-center ">
+                  <li>
+                    <Link href={`/myprofile`}>My profile </Link>
+                  </li>
+                  <Image
+                    src={session?.user?.image}
+                    width={30}
+                    height={30}
+                    alt="user image"
+                    className="rounded-full w-10 h-10 object-cover "
+                  />{" "}
+                </div>
+                <Button
+                  onClick={async () => {
+                    await authClient.signOut();
+                  }}
+                  variant="secondary"
+                >
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <Button variant="secondary">
+                <Link href={`/login`}>Login</Link>
+              </Button>
+            )}
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">QurbaniHaat</a>
-        <ThemeSwitch />
+        <div className="absolute md:static right-[5%]">
+          <ThemeSwitch />
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end flex gap-3">
+      <div className="navbar-end hidden  md:flex gap-3">
         {/*  */}
         {/* */}
         {isPending ? (

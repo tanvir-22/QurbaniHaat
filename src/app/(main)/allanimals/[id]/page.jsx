@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import animals from "../../../data/animal.json";
+import animals from "../../../../data/animal.json";
 import { Rocket } from "@gravity-ui/icons";
 import { Button, Modal } from "@heroui/react";
 import { BookmarkFill } from "@gravity-ui/icons";
@@ -10,19 +10,18 @@ const Detailspage = async ({ params }) => {
   const { id } = await params;
 
   const animal = animals.find((item) => id == item.id);
-  
 
   return (
     <section className="py-12 bg-base-100">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Left - Image */}
-        <div className="bg-base-200 rounded-lg overflow-hidden">
+        <div className=" rounded-lg overflow-hidden">
           <Image
             src={animal.image}
             alt={animal.name}
             width={600}
             height={400}
-            className="w-full h-[400px] object-cover"
+            className="md:w-full w-[90vw] h-[400px] object-contain md:object-cover"
           />
         </div>
 
@@ -71,7 +70,7 @@ const Detailspage = async ({ params }) => {
           {/* Button */}
           <Modal>
             <Button className={`mt-2`} variant="secondary">
-              Booking form
+              Order
             </Button>
             <Modal.Backdrop>
               <Modal.Container>
@@ -82,11 +81,11 @@ const Detailspage = async ({ params }) => {
                       <BookmarkFill className="size-5" />
                     </Modal.Icon>
                     <Modal.Heading className="text-center">
-                      Book you animal
+                      Booking Form
                     </Modal.Heading>
                   </Modal.Header>
                   <Modal.Body className="mx-auto">
-                    <BookingForm  />
+                    <BookingForm />
                   </Modal.Body>
                   {/* <Modal.Footer>
                     <Button className="w-full" slot="close">

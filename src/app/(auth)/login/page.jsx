@@ -58,7 +58,7 @@ const Loginpage = () => {
       />
       <Form
         onSubmit={loginHandler}
-        className="bg-base-200 p-10 flex w-[30vw] flex-col gap-4 rounded-md"
+        className="bg-base-200 p-10 flex md:w-[30vw] w-[80vw] flex-col gap-4 rounded-md"
       >
         <p className="font-semibold text-xl text-center">Login your account</p>
         <hr />
@@ -123,7 +123,7 @@ const Loginpage = () => {
         </TextField>
         <div className=" ">
           <button
-            className={`w-full bg-[#403e3e] px-4 py-2 text-white`}
+            className={`cursor-pointer w-full bg-[#403e3e] px-4 py-2 text-white`}
             type="submit"
           >
             Login
@@ -135,7 +135,7 @@ const Loginpage = () => {
                 provider: "google",
               });
             }}
-            className={`w-full mt-2 flex items-center justify-center gap-2 bg-[#403e3e] px-4 py-2 text-white`}
+            className={`cursor-pointer w-full mt-2 flex items-center justify-center gap-2 bg-[#403e3e] px-4 py-2 text-white`}
             type="submit"
           >
             <FaGoogle />

@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import React from "react";
-import { toast, ToastContainer,Zoom } from "react-toastify";
+import { toast, ToastContainer, Zoom } from "react-toastify";
 import { authClient } from "@/lib/auth-client";
 
 import {
@@ -25,46 +25,44 @@ const Registerpage = () => {
       email: registerData.email, // required
       password: registerData.password, // required
       image: registerData.photo_url,
-      
     });
-    if(data){
-        
-          toast.success(`successfully signed up! ${registerData.username}`,{autoClose:2000});
-          setTimeout(()=>{
-             redirect("/login");
-          },2000)
-         
-    }else{
-          toast.error(error.message);
-          console.log(error);
-
+    if (data) {
+      toast.success(`successfully signed up! ${registerData.username}`, {
+        autoClose: 2000,
+      });
+      setTimeout(() => {
+        redirect("/login");
+      }, 2000);
+    } else {
+      toast.error(error.message);
+      console.log(error);
     }
   };
   return (
     <div className="flex h-[90vh]  justify-center items-center">
-        <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-                transition={Zoom}
-              />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Zoom}
+      />
       <Form
         onSubmit={handleRegisterSubmit}
-        className="bg-base-200 p-10 flex w-[30vw] flex-col gap-4 rounded-md"
+        className="bg-base-200 p-10 flex md:w-[30vw] w-[85vw] flex-col gap-4 rounded-md"
       >
         <p className="font-semibold text-xl text-center">
           Register your account
         </p>
         <hr />
         <TextField
-            isRequired
+          isRequired
           name="username"
           type="text"
           validate={(value) => {
@@ -79,7 +77,7 @@ const Registerpage = () => {
           <FieldError />
         </TextField>
         <TextField
-        isRequired
+          isRequired
           name="photo_url"
           type="text"
           validate={(value) => {
