@@ -1,8 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+
 import { toast, ToastContainer, Zoom } from "react-toastify";
 import { authClient } from "@/lib/auth-client";
-
+import { EyeSlash, Eye } from "@gravity-ui/icons";
 import {
   Button,
   Description,
@@ -15,6 +16,8 @@ import {
 } from "@heroui/react";
 import { redirect } from "next/navigation";
 const Registerpage = () => {
+  const [isVisible, setIsVisible] = useState();
+
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -125,7 +128,27 @@ const Registerpage = () => {
           }}
         >
           <Label className="font-semibold">Password</Label>
-          <Input className={`w-full`} placeholder="Enter your password" />
+          <div className="relative">
+            <Input
+              type={isVisible ? `text` : `password`}
+              className={`w-full`}
+              placeholder="Enter your password"
+            />
+            <Button
+              className={`absolute right-2 top-1`}
+              isIconOnly
+              aria-label={isVisible ? "Hide password" : "Show password"}
+              size="sm"
+              variant="ghost"
+              onPress={() => setIsVisible(!isVisible)}
+            >
+              {isVisible ? (
+                <Eye className="size-4" />
+              ) : (
+                <EyeSlash className="size-4" />
+              )}
+            </Button>
+          </div>
           <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
           </Description>

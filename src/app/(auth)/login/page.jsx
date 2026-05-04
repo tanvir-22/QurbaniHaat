@@ -7,22 +7,20 @@ import { Zoom } from "react-toastify";
 import Link from "next/link";
 import {
   Button,
-  Description,
   FieldError,
   Form,
   Input,
-  InputGroup,
   Label,
   TextField,
 } from "@heroui/react";
 
 import { authClient } from "@/lib/auth-client";
-import { Alert } from "@heroui/react";
+
 import { redirect } from "next/navigation";
 
 const Loginpage = () => {
   const [isVisible, setIsVisible] = useState();
-  const [loginerror, setloginerror] = useState("");
+
   const loginHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -136,7 +134,7 @@ const Loginpage = () => {
               });
             }}
             className={`cursor-pointer w-full mt-2 flex items-center justify-center gap-2 bg-[#403e3e] px-4 py-2 text-white`}
-            type="submit"
+            type="button"
           >
             <FaGoogle />
             Login in with Google
