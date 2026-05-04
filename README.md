@@ -38,7 +38,7 @@ A modern, responsive web app for browsing and purchasing sacrificial animals onl
 ## 🛠️ Getting Started
 
 ```bash
-git clone https://github.com/your-username/qurbanihaat.git
+git clone https://github.com/tanvir-22/QurbaniHaat.git
 cd qurbanihaat
 npm install
 npm run dev
