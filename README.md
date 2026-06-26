@@ -3,7 +3,10 @@
 A modern, responsive web app for browsing and purchasing sacrificial animals online. Finding the right animal for Qurbani can be stressful — traveling to markets, comparing prices, and worrying about quality. QurbaniHaat solves that. Browse verified listings, filter by animal type, size, or price, place your order in minutes, and manage everything from your personal dashboard — all from the comfort of your home.
 
 ---
+## 🔗 Project Demo
 
+-  **[Click to preview](https://qurbani-haat.vercel.app/)**
+---
 ## 🚀 Features
 
 - 🔐 **Authentication** — Secure sign-in with email/password or Google OAuth via Better Auth
